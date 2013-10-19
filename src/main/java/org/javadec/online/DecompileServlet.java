@@ -3,11 +3,11 @@ package org.javadec.online;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.javadec.AstBuilder;
+import org.javadec.ClassAstBuilder;
 import org.javadec.Disassembler;
+import org.javadec.asm.tree.ClassNode;
+import org.javadec.ast.Clazz;
 import org.javadec.codegen.CodeGenerator;
-import org.javadec.presentation.ast.Clazz;
-import org.objectweb.asm.tree.ClassNode;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +22,7 @@ public class DecompileServlet extends HttpServlet {
 
     private static final Logger log = Logger.getLogger(DecompileServlet.class.getName());
 
-    private final AstBuilder astBuilder = new AstBuilder();
+    private final ClassAstBuilder astBuilder = new ClassAstBuilder();
     private final CodeGenerator codeGenerator = new CodeGenerator();
     private final Disassembler disassembler = new Disassembler();
 
